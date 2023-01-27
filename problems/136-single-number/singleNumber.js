@@ -10,7 +10,7 @@ const singleNumber = function (nums) {
         if (map[num]) {
             result -= num;
         } else {
-            result += num
+            result += num;
             map[num] = true;
         }
     }
