@@ -48,7 +48,7 @@ class Tree {
 
 const arrToTree = (arr) => {
     const tree = new Tree();
-    for (let el of arr) {
+    for (const el of arr) {
         tree.insert(el);
     }
     return tree;
@@ -62,4 +62,4 @@ module.exports = {
     TreeNode,
     arrToTree,
     // treeToArr,
-}
+};
