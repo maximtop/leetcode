@@ -14,5 +14,7 @@ module.exports = {
     rules: {
         indent: ['error', 4],
         'arrow-body-style': 'off',
+        'no-param-reassign': 'off',
+        'no-shadow': 'off',
     },
 };
