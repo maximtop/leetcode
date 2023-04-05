@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /**
  * @param {number[]} nums
  * @return {number}
