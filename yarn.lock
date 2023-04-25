@@ -289,10 +289,10 @@
   resolved "https://registry.yarnpkg.com/@datastructures-js/heap/-/heap-2.0.0.tgz#581f7fe57a41e089e4f3ebbbee1c9fc6a1b54d39"
   integrity sha512-LIbt3dAK7v7VPoDQ/hNO3KSlUdPLkO74m1A/c+guKhoBiY1192F2Nt0moHU0wyWw/sUV9zAnw1GPyGsS7401ZQ==
 
-"@datastructures-js/priority-queue@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@datastructures-js/priority-queue/-/priority-queue-4.1.0.tgz#70676072efd87b35b25d5aa1c744604ad744bd8a"
-  integrity sha512-TzmBBdnlhUPICmT7jrm+KYNXIE9sccOe21h0eBjVMsZISt+93T8FeGpk5YhV0bdYmoJGL8wCi66Ue9HZ13MSzw==
+"@datastructures-js/priority-queue@4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@datastructures-js/priority-queue/-/priority-queue-4.1.2.tgz#e9586caf77bef8228cbf4eceb2c1ee650c1ed0aa"
+  integrity sha512-S4fXJcsPdqEp2bbKZlH7suSiZ0lqmIs8n5BXqQXB+7/lA9LSK/Ng0hIehTjgETfe7n3g4ZVLoyjEUWHEbHJFdQ==
   dependencies:
     "@datastructures-js/heap" "^2.0.0"
 
