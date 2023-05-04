@@ -3,21 +3,25 @@
  * @param {number[]} newInterval
  * @return {number[][]}
  */
-const insert = function(intervals, newInterval) {
-    let line = [];
+const insert = function (intervals, newInterval) {
+    const result = [];
     for (let i = 0; i < intervals.length; i += 1) {
-        const interval = intervals[i];
-        line.push(interval[0]);
-        line.push(interval[1]);
+        if (newInterval[1] < intervals[i][0]) {
+            result.push(newInterval);
+            result.push(...intervals.slice(i));
+            return result;
+        }
+        if (newInterval[0] > intervals[i][1]) {
+            result.push(intervals[i]);
+        } else {
+            newInterval = [
+                Math.min(newInterval[0], intervals[i][0]),
+                Math.max(newInterval[1], intervals[i][1])
+            ];
+        }
     }
-    line.push(newInterval[0]);
-    line.push(newInterval[1]);
-    line.sort((a, b) => a - b);
-    line = [...new Set(line)];
-    let result;
-    for (let i = 0; i < line.length; i += 1) {
-        
-    }
+    result.push(newInterval);
+    return result;
 };
 
 module.exports = { insert };
