@@ -14,8 +14,8 @@ const wordPattern = function (pattern, s) {
     for (let i = 0; i < pattern.length; i += 1) {
         const char = pattern[i];
         const word = words[i];
-        if (!map[char] && !Object.values(map).includes(word)) {
-            map[char] = word;
+        if (!map[word]) {
+            map[word] = word;
         }
         if (map[char] !== word) {
             return false;
