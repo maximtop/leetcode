@@ -18,5 +18,6 @@ module.exports = {
         'no-shadow': 'off',
         'no-restricted-syntax': 'off',
         'no-bitwise': 'off',
+        'no-continue': 'off',
     },
 };
