@@ -1,4 +1,4 @@
-const { missingNumber } = require('./missingNumber');
+const { missingNumber } = require('./missingNumberBinary');
 
 describe('missingNumber', () => {
     it('finds missing number', () => {
