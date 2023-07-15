@@ -1,6 +1,16 @@
-// TODO rewrite with hash function and binary tree or linked list
+const ListNode = function (key = -1, value = -1, next = null) {
+    this.key = key;
+    this.val = value;
+    this.next = next;
+};
+
 const MyHashMap = function () {
-    this.storage = {};
+    // eslint-disable-next-line no-unused-vars
+    this.storage = new Array(1000).fill(null).map((_) => new ListNode());
+};
+
+MyHashMap.prototype.hash = function (key) {
+    return key % this.storage.length;
 };
 
 /**
@@ -9,7 +19,15 @@ const MyHashMap = function () {
  * @return {void}
  */
 MyHashMap.prototype.put = function (key, value) {
-    this.storage[key] = value;
+    let cur = this.storage[this.hash(key)];
+    while (cur.next) {
+        if (cur.next.key === key) {
+            cur.next.val = value;
+            return;
+        }
+        cur = cur.next;
+    }
+    cur.next = new ListNode(key, value);
 };
 
 /**
@@ -17,7 +35,14 @@ MyHashMap.prototype.put = function (key, value) {
  * @return {number}
  */
 MyHashMap.prototype.get = function (key) {
-    return this.storage[key] ?? -1;
+    let cur = this.storage[this.hash(key)];
+    while (cur) {
+        if (cur.key === key) {
+            return cur.val;
+        }
+        cur = cur.next;
+    }
+    return -1;
 };
 
 /**
@@ -25,7 +50,14 @@ MyHashMap.prototype.get = function (key) {
  * @return {void}
  */
 MyHashMap.prototype.remove = function (key) {
-    delete this.storage[key];
+    let cur = this.storage[this.hash(key)];
+    while (cur && cur.next) {
+        if (cur.next.key === key) {
+            cur.next = cur.next.next;
+            return;
+        }
+        cur = cur.next;
+    }
 };
 
 /**
