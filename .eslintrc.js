@@ -19,5 +19,12 @@ module.exports = {
         'no-restricted-syntax': 'off',
         'no-bitwise': 'off',
         'no-continue': 'off',
+        'max-len': ['error', {
+            code: 120,
+            ignoreUrls: true,
+            ignoreStrings: true,
+            ignoreTemplateLiterals: true,
+            ignoreRegExpLiterals: true
+        }],
     },
 };
