@@ -1,4 +1,4 @@
-const { MyCircularQueue } = require('./MyCircularQueue');
+const { MyCircularQueue } = require('./MyCircularQueueArray');
 
 describe('MyCircularQueue', () => {
     it('works', () => {
