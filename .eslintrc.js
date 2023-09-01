@@ -24,7 +24,8 @@ module.exports = {
             ignoreUrls: true,
             ignoreStrings: true,
             ignoreTemplateLiterals: true,
-            ignoreRegExpLiterals: true
+            ignoreRegExpLiterals: true,
         }],
+        'func-names': 'off',
     },
 };
