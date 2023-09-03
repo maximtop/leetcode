@@ -4,32 +4,30 @@
  * @return {boolean}
  */
 const isAlienSorted = function (words, order) {
-    const areSame = (arr1, arr2) => {
-        if (arr1.length < arr2.length) {
-            return areSame(arr2, arr1);
-        }
-        for (let i = 0; i < arr1.length; i += 1) {
-            if (arr1[i] !== arr2[i]) {
+    const orderIdx = order.split('').reduce((map, char, idx) => {
+        map[char] = idx;
+        return map;
+    }, {});
+
+    for (let i = 0; i < words.length - 1; i += 1) {
+        const w1 = words[i];
+        const w2 = words[i + 1];
+
+        for (let j = 0; j < w1.length; j += 1) {
+            if (j === w2.length) {
                 return false;
             }
-        }
-        return true;
-    };
 
-    const weights = {};
-    for (let i = 0; i < order.length; i += 1) {
-        weights[order[i]] = i + 1;
+            if (w1[j] !== w2[j]) {
+                if (orderIdx[w1[j]] > orderIdx[w2[j]]) {
+                    return false;
+                }
+                break;
+            }
+        }
     }
 
-    const sortedWords = [...words].sort((a, b) => {
-        // TODO sort words and compare
-        if (weights[a] > weights[b]) {
-            return 1;
-        }
-        return -1;
-    });
-
-    return areSame(words, sortedWords);
+    return true;
 };
 
 module.exports = { isAlienSorted };

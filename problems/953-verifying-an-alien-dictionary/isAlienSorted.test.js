@@ -6,9 +6,9 @@ describe('isAlienSorted', () => {
         let order = 'hlabcdefgijkmnopqrstuvwxyz';
         expect(isAlienSorted(words, order)).toBe(true);
 
-        // words = ['word', 'world', 'row'];
-        // order = 'worldabcefghijkmnpqstuvxyz';
-        // expect(isAlienSorted(words, order)).toBe(false);
+        words = ['word', 'world', 'row'];
+        order = 'worldabcefghijkmnpqstuvxyz';
+        expect(isAlienSorted(words, order)).toBe(false);
 
         words = ['apple', 'app'];
         order = 'abcdefghijklmnopqrstuvwxyz';
