@@ -27,5 +27,6 @@ module.exports = {
             ignoreRegExpLiterals: true,
         }],
         'func-names': 'off',
+        'consistent-return': 'off',
     },
 };
