@@ -8,11 +8,7 @@
 const numOfMinutes = function (n, headID, manager, informTime) {
     const adjMap = {};
     for (let i = 0; i < n; i += 1) {
-        if (adjMap[manager[i]]) {
-            adjMap[manager[i]].push(i);
-        } else {
-            adjMap[manager[i]] = [i];
-        }
+        (adjMap[manager[i]] ??= []).push(i);
     }
     const queue = [[headID, 0]]; // id, time
     let res = 0;
