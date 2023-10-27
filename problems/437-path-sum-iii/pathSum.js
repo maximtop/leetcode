@@ -14,20 +14,20 @@
 const pathSum = function (root, targetSum) {
     const prefixSumMap = {};
     let count = 0;
-    const dfs = (root, currSum) => {
-        if (!root) {
+    const dfs = (node, currPrefixSum) => {
+        if (!node) {
             return;
         }
-        currSum += root.val;
-        if (currSum === targetSum) {
+        currPrefixSum += node.val;
+        if (currPrefixSum === targetSum) {
             count += 1;
         }
-        count += prefixSumMap[currSum - targetSum] ?? 0;
-        prefixSumMap[currSum] ??= 0;
-        prefixSumMap[currSum] += 1;
-        dfs(root.left, currSum);
-        dfs(root.right, currSum);
-        prefixSumMap[currSum] -= 1;
+        count += prefixSumMap[currPrefixSum - targetSum] ?? 0;
+        prefixSumMap[currPrefixSum] ??= 0;
+        prefixSumMap[currPrefixSum] += 1;
+        dfs(node.left, currPrefixSum);
+        dfs(node.right, currPrefixSum);
+        prefixSumMap[currPrefixSum] -= 1;
     };
     dfs(root, 0);
     return count;
