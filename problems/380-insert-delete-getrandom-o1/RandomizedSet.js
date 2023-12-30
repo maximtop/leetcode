@@ -1,5 +1,6 @@
 const RandomizedSet = function () {
-    this.set = new Set();
+    this.map = new Map();
+    this.arr = [];
 };
 
 /**
@@ -7,10 +8,11 @@ const RandomizedSet = function () {
  * @return {boolean}
  */
 RandomizedSet.prototype.insert = function (val) {
-    if (this.set.has(val)) {
+    if (this.map.has(val)) {
         return false;
     }
-    this.set.add(val);
+    this.map.set(val, this.arr.length);
+    this.arr.push(val);
     return true;
 };
 
@@ -19,8 +21,14 @@ RandomizedSet.prototype.insert = function (val) {
  * @return {boolean}
  */
 RandomizedSet.prototype.remove = function (val) {
-    if (this.set.has(val)) {
-        this.set.delete(val);
+    if (this.map.has(val)) {
+        const idx = this.map.get(val);
+        const last = this.arr.at(-1);
+        this.arr[idx] = last;
+        this.arr.pop();
+        this.map.set(last, idx);
+        this.map.delete(val);
+
         return true;
     }
     return false;
@@ -30,9 +38,8 @@ RandomizedSet.prototype.remove = function (val) {
  * @return {number}
  */
 RandomizedSet.prototype.getRandom = function () {
-    const values = [...this.set.values()];
-    const randomIdx = Math.floor(Math.random() * values.length);
-    return values[randomIdx];
+    const randomIdx = Math.floor(Math.random() * this.arr.length);
+    return this.arr[randomIdx];
 };
 
 /**
